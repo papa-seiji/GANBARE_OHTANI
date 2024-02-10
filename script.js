@@ -1,27 +1,3 @@
-// // カウンターの初期値
-// let counterValue = 0;
-
-// // カウンターの更新
-// function updateCounter() {
-//   // カウンターを表示する要素を取得し、カウンターの値を設定
-//   const counterElement = document.getElementById('counter');
-//   counterElement.textContent = counterValue;
-// }
-
-// // インクリメント
-// function increment() {
-//   counterValue++;
-//   updateCounter();
-// }
-
-// // デクリメント
-// function decrement() {
-//   if (counterValue > 0) {
-//     counterValue--;
-//     updateCounter();
-//   }
-// }
-
 // カウンターの初期値をローカルストレージから取得する
 let counterValue = localStorage.getItem('counterValue') ? parseInt(localStorage.getItem('counterValue')) : 0;
 
@@ -96,7 +72,6 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 
-
 // 目標の開幕日
 const openingDay = new Date('2024-03-20').getTime();
 
@@ -124,3 +99,18 @@ const countdown = setInterval(function() {
     countdownElement.innerHTML = '開幕しました！';
   }
 }, 1000);
+
+//パスワードが正しい場合にindex.htmlにリダイレクトする
+function login() {
+  const passwordInput = document.getElementById('password').value;
+  const correctPassword = '1234'; // パスワードはここで設定
+
+  if (passwordInput === correctPassword) {
+    // パスワードが一致する場合、index.htmlにリダイレクト
+    window.location.href = 'index.html';
+    return false; // ページ遷移をキャンセル
+  } else {
+    alert('パスワードが間違っています。もう一度お試しください。');
+    return false; // ページ遷移をキャンセル
+  }
+}
